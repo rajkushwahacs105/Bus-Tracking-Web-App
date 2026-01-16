@@ -56,7 +56,7 @@ const busStopIcon = L.icon({
 const stopMarkers = L.layerGroup().addTo(map);
 let routingControl = null;
 
-// Selector clicks
+// select student or driver for tracking .
 document.getElementById('student').addEventListener('click', () => {
     document.querySelector('.selector').style.display = 'none';
     document.getElementById('loginstudent').style.display = 'block';
@@ -67,7 +67,7 @@ document.getElementById('Driver').addEventListener('click', () => {
     document.getElementById('logindriver').style.display = 'block';
 });
 
-// Student login
+// Student login page .
 document.getElementById('loginBtnStudent').addEventListener('click', () => {
     selectedRoute = document.getElementById('routeSelectStudent').value;
     busStops = routes[selectedRoute];
@@ -75,17 +75,17 @@ document.getElementById('loginBtnStudent').addEventListener('click', () => {
     // Clear previous stops
     stopMarkers.clearLayers();
     
-    // Load stops
+    // stopes lode karna ka liya
     busStops.forEach(stop => {
         L.marker([stop.lat, stop.lng], {icon: busStopIcon}).addTo(stopMarkers).bindPopup(stop.name);
     });
     
-    // Clear previous routing
+    // Clear previous routing 
     if(routingControl){
         map.removeControl(routingControl);
     }
     
-    // Route via roads 
+    // roads ko mark karna ka liya
     const waypoints = busStops.map(stop => L.latLng(stop.lat, stop.lng));
     routingControl = L.Routing.control({
         waypoints: waypoints,
@@ -105,11 +105,11 @@ document.getElementById('loginBtnStudent').addEventListener('click', () => {
     map.invalidateSize();
     map.setView([busStops[0].lat, busStops[0].lng], 16);
     
-    // Join room
+    // jab koi route select kare to us room me join karna ka liya
     socket.emit("join-room", {route: selectedRoute});
 });
 
-// Driver login
+// driver login page .
 document.getElementById('loginBtnDriver').addEventListener('click', () => {
     selectedRoute = document.getElementById('routeSelectDriver').value;
     const busNumber = document.getElementById('busNumber').value;
@@ -128,7 +128,7 @@ document.getElementById('loginBtnDriver').addEventListener('click', () => {
         map.removeControl(routingControl);
     }
     
-    // Route via roads 
+    // Display route
     const waypoints = busStops.map(stop => L.latLng(stop.lat, stop.lng));
     routingControl = L.Routing.control({
         waypoints: waypoints,
@@ -148,7 +148,7 @@ document.getElementById('loginBtnDriver').addEventListener('click', () => {
     map.invalidateSize();
     map.setView([busStops[0].lat, busStops[0].lng], 16);
     
-    // Join room
+    // Join room for the selected route
     socket.emit("join-room", {route: selectedRoute});
     
     // Send location immediately and every 5 seconds

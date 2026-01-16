@@ -19,16 +19,14 @@ const routes = {
         {name: 'UIT-RGPV ', lat: 23.309925, lng: 77.361736},
     ],
     'route2': [
-        {name: 'Stop A', lat: 28.6139, lng: 77.2090},
-        {name: 'Stop B', lat: 28.6150, lng: 77.2100},
-        {name: 'Stop C', lat: 28.6170, lng: 77.2120},
-        {name: 'Stop D', lat: 28.6190, lng: 77.2140},
-        {name: 'Stop E', lat: 28.6210, lng: 77.2160},
-        {name: 'Stop f', lat: 28.6139, lng: 77.2090},
-        {name: 'Stop g', lat: 28.6150, lng: 77.2100},
-        {name: 'Stop h', lat: 28.6170, lng: 77.2120},
-        {name: 'Stop i', lat: 28.6190, lng: 77.2140},
-        {name: 'Stop j', lat: 28.6210, lng: 77.2160},
+        {name: 'PRABHAT PETROL PUMP', lat: 23.252508, lng: 77.430567}, 
+        {name: 'ASHOKA GARDEN DASHAHRA MAIDAN', lat: 23.258893, lng: 77.431577},
+        {name: 'ASHOKA GANRDEN THANA', lat: 23.260826, lng: 77.429440},
+        {name: 'SANGAM TENT HOUSE', lat: 23.264441, lng: 77.424507},
+        {name: 'PUSPA NAGAR PETROL PUMP', lat: 23.262933, lng: 77.418356},
+        {name: 'NADRA BUS STAND', lat: 23.265585, lng: 77.405305},
+        {name: 'Stop gGANESH MANDIR', lat: 23.275850, lng: 77.414825},
+        {name: 'UIT-RGPV', lat: 23.309925, lng: 77.361736},
     ]
 };
 

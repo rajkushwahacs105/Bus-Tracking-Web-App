@@ -9,27 +9,35 @@ const io = socketio(server);
 
 app.set('view engine', 'ejs');
 
-
 app.use(express.static(path.join(__dirname, 'public')));
 
+const userRoutes = {};
+
 io.on("connection", function(socket) {
+    socket.on("join-room", (data) => {
+        const {route} = data;
+        socket.join(route);
+        userRoutes[socket.id] = route;
+    });
+
     socket.on("send-location", function(data){
-        //sabko location send ho gei
-        io.emit("receive-location", {id: socket.id, ...data});
+        const route = userRoutes[socket.id];
+        if(route){
+            io.to(route).emit("receive-location", {id: socket.id, ...data});
+        }
     });
 
     socket.on("disconnect", function(){
-    //jab koi disconnect ho to sabko batado
-    io.emit("user-disconnected", socket.id);
-})
-  
+        const route = userRoutes[socket.id];
+        if(route){
+            io.to(route).emit("user-disconnected", socket.id);
+        }
+        delete userRoutes[socket.id];
+    });
 });
-
-
 
 app.get('/', (req, res) => {
-  res.render('index');
+    res.render('index');
 });
 
-
-server.listen(3000);
+server.listen(3001);

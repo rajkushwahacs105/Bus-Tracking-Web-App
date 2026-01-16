@@ -3,21 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><real-time-tracking></real-time-tracking></title>
+    <title>Real Time Bus Tracking</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
     <link rel="stylesheet" href="/css/style.css">
-
-
-
 </head>
 <body>
+    <h1 id="teamlogo">INNOVATEX
+        <br>
+        WE ARE PRESENTING </h1>
+    <h2 id="projectname">BUS TRACKING WEB APPLICATION </h2>   
 
-    <div id="map"></div>
+    
+    <div class="selector">
+        <div id="student">Student</div>
+        <div id="Driver">Driver</div>
+    </div>
+<!--student-login-->    
+    <div id="loginstudent" class="login-panel" style="display: none;">
+        <h2 class="loginid">Student Login</h2>
+        <br>
+        <input type="text" placeholder="Username"><br>
+        <input type="password" placeholder="Password"><br>
+        <label for="routeSelectStudent">Select Route:</label><br>
+        <select id="routeSelectStudent">
+            <option value="route1">Route 1</option>
+            <option value="route2">Route 2</option>
+        </select>
+        <button id="loginBtnStudent">Start Tracking</button>
+    </div>
+<!--driver-->
+    <div id="logindriver" class="login-panel" style="display: none;">
+        <h2 class="loginid">Bus Driver Login</h2>
+        <input type="text" placeholder="Username"><br>
+        <input type="password" placeholder="Password"><br>
+        <input id="busNumber" type="number" placeholder="BUS NUMBER"><br>
+        <label for="routeSelectDriver">Select Route:</label><br>
+        <select id="routeSelectDriver">
+            <option value="route1">Route 1</option>
+            <option value="route2">Route 2</option>
+        </select>
+        <button id="loginBtnDriver">Start Tracking</button>
+    </div>
+
+    <div id="map" style="display: none;"></div>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-
+    <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
     <script src="https://cdn.socket.io/4.8.1/socket.io.min.js" integrity="sha384-mkQ3/7FUtcGyoppY6bz/PORYoGqOl7/aSUMn2ymDOJcapfS6PHqxhRTMh1RR0Q6+" crossorigin="anonymous"></script>
     <script src="/js/script.js"></script>
-    
 </body>
 </html>

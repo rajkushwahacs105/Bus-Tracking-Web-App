@@ -84,9 +84,6 @@ Bus stops include:
 - RANI KAMLAPATI STATION
 - UIT-RGPV
 
-### Route 2 (Delhi Region)
-Multiple stops from Stop A to Stop J
-
 ## 📁 Project Structure
 
 ```

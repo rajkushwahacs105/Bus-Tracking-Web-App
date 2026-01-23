@@ -66,7 +66,7 @@ A real-time bus tracking application built by **InnovateX** that allows students
 
 ## 🗺️ Available Routes
 
-### Route 1 (Indore, MP)
+### Route 1 
 Bus stops include:
 - PRATHAM DHABA (MANDIDEEP)
 - PAL DHABA
